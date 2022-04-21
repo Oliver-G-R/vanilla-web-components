@@ -1,0 +1,1 @@
+(()=>{"use strict";document.addEventListener("DOMContentLoaded",(()=>{document.querySelector("#form-contact").addEventListener("submit",(e=>{e.preventDefault();const t=Object.fromEntries(new FormData(e.target));window.open(`mailto:oliver.kali.hub@gmail.com?subject=${t.title}&body=${t.message}${t.name}`),e.target.reset()}))}))})();
