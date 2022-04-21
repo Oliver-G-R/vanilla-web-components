@@ -6,16 +6,26 @@ class LinkCard extends HTMLElement {
 
         this.name = ""
         this.link = ""
-      
+        this.internPage = true
+
     }
 
     static get observedAttributes() {
-        return ["name", "link"]
+        return ["name", "link", "intern-page"]
     }
 
     attributeChangedCallback(prop, oldValue, newValue) {
-        if(oldValue === newValue) return
-        this[prop] = newValue
+        switch (prop) {
+            case "name":
+                this.name = newValue
+                break
+            case "link":
+                this.link = newValue
+                break
+            case "intern-page":
+                this.internPage = newValue === "true" 
+                break
+        }
     }
 
     connectedCallback() {
@@ -25,7 +35,10 @@ class LinkCard extends HTMLElement {
     render() {
         this.shadow.innerHTML = /*html*/ `
             ${this._style.innerHTML = style}
-            <a href="${this.link}">
+            <a  
+                target="${this.internPage ? "_self" : "_blank"}"
+                id="link" 
+                href="${this.link}">
                 ${this.name}
             </a>
         `

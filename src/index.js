@@ -6,11 +6,12 @@ const pages = [
     {
         name: 'Doc',
         link: 'https://github.com/Oliver-G-R/vanilla-web-components',
+        internPage: false
     },
     {
         name: 'Contact',
         link: '/contact.html',
-        
+        internPage: true
     },
 ]
 
@@ -21,8 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pages.map(page => {
         const $link_card = document.createElement('cm-link-card')
-        $link_card.name = page.name
-        $link_card.link = page.link
+        $link_card.setAttribute('intern-page', page.internPage)
+        $link_card.setAttribute('name', page.name)
+        $link_card.setAttribute('link', page.link)
+        
         $card_grid.appendChild($link_card)
     })
 })
