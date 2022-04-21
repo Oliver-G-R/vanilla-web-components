@@ -1,0 +1,31 @@
+@import url('./reset.css');
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+.form > input , textarea{
+    border: 1.5px solid rgba(0, 0, 0, 0.416);
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.form textarea{
+    resize: none;
+}
+
+.form > button{
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
